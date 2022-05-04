@@ -10,9 +10,6 @@
 ## 📋Sobre
 API Restful para o registro e rastreio de hábitos.
 
-baseado no don't break the streak?
-
-
 ---
 
 ## 📌Tecnologias utilizadas
@@ -40,7 +37,7 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 	- [x] Criação de nova entrada diária se não houver
 	- [x] Pegar a entrada do dia se criada anteriormente
 - [x] Atualizar o status de uma entrada diária 
-- [ ] Rastrear o progresso de um hábito
+- [x] Rastrear o progresso de um hábito
 - [ ] Estruturar a aplicação
 
 ### Frontend
