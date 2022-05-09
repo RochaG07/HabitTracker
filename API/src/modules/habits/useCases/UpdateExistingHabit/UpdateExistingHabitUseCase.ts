@@ -1,3 +1,4 @@
+import AppError from "../../../../error/AppError";
 import Habit from "../../models/Habit";
 
 interface IRequest{
@@ -14,8 +15,15 @@ class UpdateExistingHabitUseCase{
         let habit = await Habit.findByPk(data.id);
     
         if(!habit){
-            throw new Error("Not found.");
+            throw new AppError("Habit not found.");
         } 
+
+        const habitFound = await Habit.findOne({
+            where:{name: data.name}
+        })
+        if(habitFound){
+            throw new AppError("There is a habit with this name already.")
+        }
 
         await habit.update({
             name: data.name,

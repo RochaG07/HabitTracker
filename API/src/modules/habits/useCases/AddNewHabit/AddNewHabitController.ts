@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+import handleError from "../../../../error/handleError";
 import AddNewHabitUseCase from "./AddNewHabitUseCase";
 
 class AddNewHabitController{
@@ -13,21 +14,20 @@ class AddNewHabitController{
             fullCredit_condition
         } = req.body;
 
-        const habit = await this.addNewHabitUseCase.execute({
-            name, 
-            repeteableAtTheseDaysOfWeek, 
-            minimalCredit_condition,
-            partialCredit_condition,
-            fullCredit_condition
-        })
-
-        if(!habit){
-            res.status(400).json("Error");
+        try{
+            const habit = await this.addNewHabitUseCase.execute({
+                name, 
+                repeteableAtTheseDaysOfWeek, 
+                minimalCredit_condition,
+                partialCredit_condition,
+                fullCredit_condition
+            })
+    
+            res.status(201).json(habit);
+        } catch(err) {
+            handleError(err, res);
         }
-
-        res.status(201).json(habit);
     }
-
 }
 
 export default AddNewHabitController;

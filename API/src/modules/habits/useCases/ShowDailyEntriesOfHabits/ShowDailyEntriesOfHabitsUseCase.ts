@@ -1,4 +1,5 @@
 import { format, isToday } from "date-fns";
+import AppError from "../../../../error/AppError";
 import DailyEntry from "../../models/DailyEntry";
 import Habit from "../../models/Habit";
 
@@ -23,7 +24,7 @@ class ShowDailyEntriesOfHabitsUseCase{
             })
     
             if(habitsThatRepeatToday.length <= 0){
-                throw new Error('No habits registered for this day of the week');
+                throw new AppError('No habits registered for this day of the week');
             }
     
             todayDailyEntries = habitsThatRepeatToday.map(habit => {
@@ -36,14 +37,11 @@ class ShowDailyEntriesOfHabitsUseCase{
     
             todayDailyEntries.forEach(async daily => await daily.save());
     
-            console.log('CREATE DAILY ENTRIES');
         } else {
             // Entrada já foi criada
             const dailyEntries = await DailyEntry.findAll();
     
             todayDailyEntries = dailyEntries.filter(daily => isToday(daily.createdAt))
-    
-            console.log('FOUND TODAY DAILY ENTRIES');
         }
     
         return todayDailyEntries;

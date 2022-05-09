@@ -7,5 +7,4 @@ app.use(json());
 
 app.use(habitsRoutes);
 
-
 export default app;

@@ -1,13 +1,18 @@
 import { Request, Response } from "express";
+import handleError from "../../../../error/handleError";
 import ShowDailyEntriesOfHabitsUseCase from "./ShowDailyEntriesOfHabitsUseCase";
 
 class ShowDailyEntriesOfHabitsController{
     constructor(private showDailyEntriesOfHabitsUseCase = new ShowDailyEntriesOfHabitsUseCase()){}
 
     async handle(req: Request, res: Response){
-        const entries = await this.showDailyEntriesOfHabitsUseCase.execute();
+        try{
+            const entries = await this.showDailyEntriesOfHabitsUseCase.execute();
 
-        res.json(entries);
+            res.json(entries);
+        } catch(err) {
+            handleError(err, res);
+        }
     }
 }
 

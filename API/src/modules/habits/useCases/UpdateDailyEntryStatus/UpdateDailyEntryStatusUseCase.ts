@@ -1,3 +1,4 @@
+import AppError from "../../../../error/AppError";
 import DailyEntry from "../../models/DailyEntry";
 
 interface IRequest{
@@ -13,13 +14,13 @@ class UpdateDailyEntryStatusUseCase{
             requirementThatWasMet !== 'partial' &&
             requirementThatWasMet !== 'full'
         ){
-            throw new Error("Invalid requirement.");
+            throw new AppError("Invalid requirement.");
         }
 
         let dailyEntry = await DailyEntry.findByPk(id);
 
         if(!dailyEntry){
-            throw new Error("Daily entry not found.");
+            throw new AppError("Daily entry not found.");
         } 
 
         if(requirementThatWasMet === 'minimal'){

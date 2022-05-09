@@ -1,4 +1,5 @@
 import { eachDayOfInterval, format } from "date-fns";
+import AppError from "../../../../error/AppError";
 import DailyEntry from "../../models/DailyEntry";
 import Habit from "../../models/Habit";
 
@@ -12,7 +13,7 @@ class TrackHabitProgressUseCase {
         let habit = await Habit.findByPk(id);
 
         if(!habit){
-            throw new Error("Not Found")
+            throw new AppError("Habit not Found")
         } 
 
         let maxPossibleValue: number = 0;

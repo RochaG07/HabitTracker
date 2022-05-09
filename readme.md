@@ -38,7 +38,8 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:
 	- [x] Pegar a entrada do dia se criada anteriormente
 - [x] Atualizar o status de uma entrada diária 
 - [x] Rastrear o progresso de um hábito
-- [ ] Estruturar a aplicação
+- [x] Estruturar a aplicação
+- [] Testes
 
 ### Frontend
 - [ ] ...
