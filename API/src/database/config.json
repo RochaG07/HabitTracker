@@ -13,7 +13,7 @@
     "database": "database_test",
     "host": "localhost",
     "dialect": "sqlite",
-    "storage": "./src/database/database.sqlite3"
+    "storage": "./src/database/test_database.sqlite3"
   },
   "production": {
     "username": "root",

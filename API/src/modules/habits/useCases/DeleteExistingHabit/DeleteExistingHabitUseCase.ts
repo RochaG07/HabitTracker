@@ -1,3 +1,4 @@
+import AppError from "../../../../error/AppError";
 import Habit from "../../models/Habit";
 
 interface IRequest{
@@ -9,7 +10,7 @@ class DeleteExistingHabitUseCase{
         let habit = await Habit.findByPk(id);
     
         if(!habit){
-            throw new Error("Not Found");
+            throw new AppError("Not Found", 404);
         } 
 
         await habit.destroy();

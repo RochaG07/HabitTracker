@@ -4,7 +4,7 @@ import {Sequelize} from 'sequelize';
 
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: './src/database/database.sqlite3'
+  storage: './src/database/database.sqlite3',
 }); 
 
 export {sequelize};

@@ -11,9 +11,11 @@ interface IRequest{
 
 class AddNewHabitUseCase{
     async execute(data: IRequest): Promise<Habit>{
+        
         const foundHabit = await Habit.findOne({
             where: {name: data.name}
         });
+
         if(foundHabit){
             throw new AppError("There cannot be two habits with the same name.");
         }
