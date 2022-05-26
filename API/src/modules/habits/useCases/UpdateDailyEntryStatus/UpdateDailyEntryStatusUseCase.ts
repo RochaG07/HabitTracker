@@ -1,5 +1,5 @@
 import AppError from "../../../../error/AppError";
-import DailyEntry from "../../models/DailyEntry";
+import DailyEntry from "../../models/DailyEntry.model";
 
 interface IRequest{
     id: string,
@@ -22,6 +22,7 @@ class UpdateDailyEntryStatusUseCase{
         if(!dailyEntry){
             throw new AppError("Daily entry not found.");
         } 
+        
 
         if(requirementThatWasMet === 'minimal'){
             dailyEntry.update({

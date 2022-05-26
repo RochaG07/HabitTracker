@@ -4,6 +4,7 @@ import AddNewHabitUseCase from "./AddNewHabitUseCase";
 
 let addNewHabitUseCase: AddNewHabitUseCase;
 
+/*
 jest.mock('../../models/Habit', () => {  
     return {
         build: mockBuild,
@@ -11,11 +12,15 @@ jest.mock('../../models/Habit', () => {
         findByPk: mockfindByPk
     }
 });
+*/
+
+
 
 beforeEach(() => {
-    jest.resetAllMocks();
+    //jest.resetAllMocks();
 
     addNewHabitUseCase = new AddNewHabitUseCase();
+
 });
 
 describe('Add a new habit', () => {

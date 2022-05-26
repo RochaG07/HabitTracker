@@ -1,4 +1,4 @@
-import Habit from "../../models/Habit";
+import Habit from "../../models/Habit.model";
 import AddNewHabitController from "./AddNewHabitController";
 import AddNewHabitUseCase from "./AddNewHabitUseCase";
 

@@ -36,8 +36,13 @@ describe('Update the status of a daily entry', () => {
             requirementThatWasMet: 'minimal',
         }); 
 
+        
+
+
+
         expect(dailyEntry.minimalCredit_RequirementWasMet).toBe(true);    
     })
+
 
 
     it('Should not be able to update the status of a non-existing daily entry', () => {

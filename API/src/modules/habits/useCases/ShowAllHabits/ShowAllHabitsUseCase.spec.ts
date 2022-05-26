@@ -1,5 +1,5 @@
 import AppError from "../../../../error/AppError";
-import Habit from "../../models/Habit";
+import Habit from "../../models/Habit.model";
 import { mockBuild, mockfindByPk, mockfindOne, mockfindAll } from "../../models/mocks/HabitMock";
 import ShowAllHabitsUseCase from "./ShowAllHabitsUseCase";
 

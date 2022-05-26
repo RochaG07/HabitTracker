@@ -1,4 +1,4 @@
-import Habit from "../../models/Habit";
+import Habit from "../../models/Habit.model";
 
 class ShowAllHabitsUseCase{
     async execute(): Promise<Habit[]>{

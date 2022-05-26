@@ -1,10 +1,23 @@
-import {Sequelize} from 'sequelize';
+import {Sequelize} from 'sequelize-typescript';
+import DailyEntry from '../modules/habits/models/DailyEntry.model';
+import Habit from '../modules/habits/models/Habit.model';
 
-// Inicializa e exporta um novo objeto usando um construtor que espera a configuração do banco.
+export default class db{
+  repo: Sequelize | null = null;
 
-const sequelize = new Sequelize({
-  dialect: 'sqlite',
-  storage: './src/database/database.sqlite3',
-}); 
+  contructor(){
+    this.connectDB();
+  }
 
-export {sequelize};
+  connectDB(){
+    const sequelize = new Sequelize({
+      dialect: 'sqlite',
+      storage: './src/database/database.sqlite3',
+      models: ['../modules/habits/models/*.model.ts']
+    }); 
+    
+    sequelize.addModels([Habit, DailyEntry]);
+    
+    sequelize.authenticate();
+  }
+}

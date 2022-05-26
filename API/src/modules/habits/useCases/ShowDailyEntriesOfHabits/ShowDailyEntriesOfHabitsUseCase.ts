@@ -1,7 +1,7 @@
 import { format, isToday } from "date-fns";
 import AppError from "../../../../error/AppError";
-import DailyEntry from "../../models/DailyEntry";
-import Habit from "../../models/Habit";
+import DailyEntry from "../../models/DailyEntry.model";
+import Habit from "../../models/Habit.model";
 
 class ShowDailyEntriesOfHabitsUseCase{
     async execute(): Promise<DailyEntry[]>{

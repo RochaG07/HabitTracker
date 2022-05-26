@@ -1,5 +1,5 @@
 import AppError from "../../../../error/AppError";
-import Habit from "../../models/Habit";
+import Habit from "../../models/Habit.model";
 import { mockBuild, mockfindByPk, mockfindOne } from "../../models/mocks/HabitMock";
 import DeleteExistingHabitUseCase from "./DeleteExistingHabitUseCase";
 

@@ -1,7 +1,7 @@
 import { eachDayOfInterval, format } from "date-fns";
 import AppError from "../../../../error/AppError";
-import DailyEntry from "../../models/DailyEntry";
-import Habit from "../../models/Habit";
+import DailyEntry from "../../models/DailyEntry.model";
+import Habit from "../../models/Habit.model";
 
 const FULL_CREDIT_VALUE: number = 3;
 const PARTIAL_CREDIT_VALUE: number  = 2;

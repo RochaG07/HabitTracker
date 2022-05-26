@@ -1,5 +1,5 @@
 import AppError from "../../../../error/AppError";
-import Habit from "../../models/Habit";
+import Habit from "../../models/Habit.model";
 
 interface IRequest{
     id: string,
