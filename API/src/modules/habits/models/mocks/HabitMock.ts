@@ -4,55 +4,56 @@ interface findOptions {
     }
 }
 
-function mockBuild(){
-    return {
-        id: "2",
-        name: "testHabit",
-        repeteableAtTheseDaysOfWeek: "Mon,Thu,Wed,Fri",
-        minimalCredit_condition: "Ler uma linha de código",
-        partialCredit_condition: "2 Pomodoros",
-        fullCredit_condition: "6 Pomodoros",
+const fakeExistingHabit = {
+    id: "1",
+    name: "testAlreadyThere",
+    repeteableAtTheseDaysOfWeek: "Mon,Thu,Wed,Fri,Sat,Sun",
+    minimalCredit_condition: "Ler uma linha de código",
+    partialCredit_condition: "2 Pomodoros",
+    fullCredit_condition: "6 Pomodoros",
+    createdAt: new Date(2020, 4, 10, 10),
 
-        save: () => {},
-        destroy: () => {}
-    };
+    save: () => {},
+    destroy: () => {}
+}
+
+const fakeNewHabit = {
+    id: "2",
+    name: "testHabit",
+    repeteableAtTheseDaysOfWeek: "Mon,Thu,Wed,Fri,Sat,Sun",
+    minimalCredit_condition: "Ler uma linha de código",
+    partialCredit_condition: "2 Pomodoros",
+    fullCredit_condition: "6 Pomodoros",
+    createdAt: new Date(2020, 4, 10, 10),
+
+    save: () => {},
+    destroy: () => {}
+}
+
+
+function mockBuild(){
+    return fakeNewHabit;
 }
 
 async function mockfindOne(options: findOptions){
     if(options.where.name === "testAlreadyThere"){
-        return {
-            id: "1",
-            name: "testAlreadyThere",
-            repeteableAtTheseDaysOfWeek: "Mon,Thu,Wed,Fri",
-            minimalCredit_condition: "Ler uma linha de código",
-            partialCredit_condition: "2 Pomodoros",
-            fullCredit_condition: "6 Pomodoros",
-
-            save: () => {},
-            destroy: () => {}
-        }
+        return fakeExistingHabit;
     }
 
     return null;
+}
+
+async function mockfindAll(){
+    return [];
 }
 
 async function mockfindByPk(pk: string){
     if(pk === '1'){
-        return {
-            id: "1",
-            name: "testAlreadyThere",
-            repeteableAtTheseDaysOfWeek: "Mon,Thu,Wed,Fri",
-            minimalCredit_condition: "Ler uma linha de código",
-            partialCredit_condition: "2 Pomodoros",
-            fullCredit_condition: "6 Pomodoros",
-
-            save: () => {},
-            destroy: () => {}
-        }
+        return fakeExistingHabit;
     }
 
     return null;
 }
 
 
-export {mockBuild, mockfindOne, mockfindByPk};
+export {mockBuild, mockfindOne, mockfindAll, mockfindByPk};
